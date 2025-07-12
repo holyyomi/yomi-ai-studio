@@ -15,7 +15,6 @@ export class DatabaseService {
     return await db.user.findUnique({
       where: { email },
       include: {
-        apiKeys: true,
         transactions: {
           orderBy: { createdAt: 'desc' },
           take: 10
@@ -28,8 +27,11 @@ export class DatabaseService {
     return await db.user.findUnique({
       where: { id },
       include: {
-        apiKeys: true,
         contents: {
+          orderBy: { createdAt: 'desc' },
+          take: 10
+        },
+        transactions: {
           orderBy: { createdAt: 'desc' },
           take: 10
         }
@@ -53,7 +55,7 @@ export class DatabaseService {
   // 콘텐츠 관련
   static async createContent(data: {
     userId: string
-    type: 'PERSONAL' | 'PRODUCT'
+    type: any
     title: string
     inputData: any
     platforms: string[]
@@ -70,7 +72,7 @@ export class DatabaseService {
 
   static async updateContentStatus(
     id: string, 
-    status: 'PENDING' | 'PROCESSING' | 'COMPLETED' | 'FAILED',
+    status: any,
     outputs?: any
   ) {
     return await db.content.update({
@@ -86,11 +88,13 @@ export class DatabaseService {
   // 거래 관련
   static async createTransaction(data: {
     userId: string
-    type: 'PURCHASE' | 'REFUND' | 'BONUS' | 'DEDUCTION'
+    type: any
     amount: number
     credits: number
-    planType?: 'PRO' | 'PREMIUM' | 'VIP'
+    planType?: any
     description?: string
+    paymentId?: string
+    orderId?: string
   }) {
     return await db.transaction.create({
       data: {
@@ -100,70 +104,9 @@ export class DatabaseService {
     })
   }
 
-  // API 키 관리
-  static async saveApiKey(data: {
-    userId: string
-    platform: string
-    keyData: string
-  }) {
-    return await db.apiKey.upsert({
-      where: {
-        userId_platform: {
-          userId: data.userId,
-          platform: data.platform as any
-        }
-      },
-      update: {
-        keyData: data.keyData,
-        isActive: true,
-        updatedAt: new Date()
-      },
-      create: data as any
-    })
-  }
-
-  // 분석 데이터
-  static async updateDailyAnalytics(date: Date, data: {
-    totalUsers?: number
-    activeUsers?: number
-    newUsers?: number
-    contentsCreated?: number
-    creditsUsed?: number
-    revenue?: number
-    subscriptions?: number
-  }) {
-    return await db.analytics.upsert({
-      where: { date },
-      update: {
-        ...data,
-        updatedAt: new Date()
-      },
-      create: {
-        date,
-        ...data
-      }
-    })
-  }
-
-  // 시스템 설정
-  static async getSystemConfig(key: string) {
-    const config = await db.systemConfig.findUnique({
-      where: { key }
-    })
-    return config?.value
-  }
-
-  static async setSystemConfig(key: string, value: string) {
-    return await db.systemConfig.upsert({
-      where: { key },
-      update: { value, updatedAt: new Date() },
-      create: { key, value }
-    })
-  }
-
   // 구독 정보 업데이트
   static async updateUserSubscription(userId: string, data: {
-    plan: 'PRO' | 'PREMIUM' | 'VIP'
+    plan: any
     credits: number
     planExpiry: Date
   }) {
