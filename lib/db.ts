@@ -160,4 +160,39 @@ export class DatabaseService {
       create: { key, value }
     })
   }
+
+  // 구독 정보 업데이트
+  static async updateUserSubscription(userId: string, data: {
+    plan: 'PRO' | 'PREMIUM' | 'VIP'
+    credits: number
+    planExpiry: Date
+  }) {
+    return await db.user.update({
+      where: { id: userId },
+      data: {
+        plan: data.plan,
+        credits: data.credits,
+        planExpiry: data.planExpiry,
+        updatedAt: new Date()
+      }
+    })
+  }
+
+  // 결제 상태 업데이트
+  static async updatePaymentStatus(orderId: string, status: string) {
+    return await db.transaction.updateMany({
+      where: { orderId },
+      data: { 
+        status: status === 'DONE' ? 'COMPLETED' : 'FAILED',
+        updatedAt: new Date()
+      }
+    })
+  }
+
+  // 주문 ID로 거래 조회
+  static async getTransactionByOrderId(orderId: string) {
+    return await db.transaction.findFirst({
+      where: { orderId }
+    })
+  }
 }

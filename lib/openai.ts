@@ -16,6 +16,7 @@ export interface ContentGenerationRequest {
     features?: string
     price?: string
     target?: string
+    generateImages?: boolean
   }
   platforms: string[]
 }
@@ -269,7 +270,7 @@ ${platform === 'PINTEREST' ? '핀터레스트 세로 비율 (2:3)' : ''}
         quality: 'standard'
       })
 
-      return response.data[0]?.url || ''
+      return response.data?.[0]?.url || ''
     } catch (error) {
       console.error('Error generating image:', error)
       throw new Error('Failed to generate image')

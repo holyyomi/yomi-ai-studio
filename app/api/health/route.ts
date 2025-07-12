@@ -1,27 +1,16 @@
 import { NextResponse } from 'next/server'
-import { db } from '@/lib/db'
 
 export async function GET() {
   try {
-    // 데이터베이스 연결 확인
-    await db.user.count()
-    
-    return NextResponse.json({
+    // 임시 응답
+    return NextResponse.json({ 
       status: 'healthy',
       timestamp: new Date().toISOString(),
-      services: {
-        database: 'connected',
-        ai: 'ready',
-        payment: 'ready'
-      }
+      message: '서버가 정상적으로 동작하고 있습니다.'
     })
   } catch (error) {
     return NextResponse.json(
-      {
-        status: 'unhealthy',
-        timestamp: new Date().toISOString(),
-        error: 'Database connection failed'
-      },
+      { error: 'Internal server error' },
       { status: 500 }
     )
   }

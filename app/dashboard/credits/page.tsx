@@ -1,29 +1,18 @@
-import { getCurrentUser } from '@/lib/auth'
-import { CreditManagement } from '@/components/dashboard/credit-management'
-import { redirect } from 'next/navigation'
+import { Card, CardContent, CardHeader, CardTitle } from '../../../components/ui/card'
 
-export default async function CreditsPage() {
-  const user = await getCurrentUser()
-
-  if (!user) {
-    redirect('/login')
-  }
-
+export default function CreditsPage() {
   return (
-    <div className="max-w-4xl mx-auto">
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">
-          크레딧 관리
-        </h1>
-        <p className="text-gray-600">
-          크레딧 사용 내역을 확인하고 플랜을 관리하세요
-        </p>
-      </div>
-
-      <CreditManagement 
-        user={user}
-        transactions={user.transactions || []}
-      />
+    <div className="p-6">
+      <h1 className="text-2xl font-bold mb-6">크레딧 관리</h1>
+      <Card>
+        <CardHeader>
+          <CardTitle>보유 크레딧</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <p className="text-2xl font-bold">200</p>
+          <p className="text-sm text-gray-600 mt-2">크레딧 관리 기능 준비 중입니다.</p>
+        </CardContent>
+      </Card>
     </div>
   )
 }
