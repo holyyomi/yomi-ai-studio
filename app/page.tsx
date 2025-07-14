@@ -2,6 +2,8 @@ import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Zap, Clock, Target, TrendingUp, Sparkles, Upload, Download, FileText } from 'lucide-react'
 
+// Deployment cache busting - v1.0.1
+
 export default function HomePage() {
   const platforms = {
     blog: [
