@@ -1,8 +1,94 @@
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
-import { Zap, Clock, Target, TrendingUp, Sparkles } from 'lucide-react'
+import { Zap, Clock, Target, TrendingUp, Sparkles, Upload, Download, FileText } from 'lucide-react'
 
 export default function HomePage() {
+  const platforms = {
+    blog: [
+      {
+        name: '구글 블로그',
+        icon: '📝',
+        description: 'SEO 최적화 긴 콘텐츠 생성',
+        color: 'from-purple-500 to-pink-500',
+        badge: 'blog'
+      }
+    ],
+    auto: [
+      {
+        name: '인스타그램',
+        icon: '📷',
+        description: '해시태그 자동 생성',
+        color: 'from-pink-500 to-purple-500',
+        badge: 'auto'
+      },
+      {
+        name: '페이스북',
+        icon: '👥',
+        description: '참여 유도 콘텐츠',
+        color: 'from-blue-500 to-indigo-500',
+        badge: 'auto'
+      },
+      {
+        name: '트위터',
+        icon: '🐦',
+        description: '140자 최적화',
+        color: 'from-sky-500 to-blue-500',
+        badge: 'auto'
+      },
+      {
+        name: '링크드인',
+        icon: '💼',
+        description: '전문성 강조',
+        color: 'from-blue-600 to-indigo-600',
+        badge: 'auto'
+      },
+      {
+        name: '핀터레스트',
+        icon: '📌',
+        description: '시각적 최적화',
+        color: 'from-red-500 to-pink-500',
+        badge: 'auto'
+      }
+    ],
+    manual: [
+      {
+        name: '네이버 블로그',
+        icon: '🟢',
+        description: '한국형 SEO',
+        color: 'from-green-500 to-emerald-500',
+        badge: 'manual'
+      },
+      {
+        name: '티스토리',
+        icon: '📖',
+        description: '개인 블로그 최적화',
+        color: 'from-orange-500 to-red-500',
+        badge: 'manual'
+      },
+      {
+        name: '브런치',
+        icon: '☕',
+        description: '스토리텔링 강화',
+        color: 'from-amber-500 to-orange-500',
+        badge: 'manual'
+      },
+      {
+        name: '카카오채널',
+        icon: '💬',
+        description: '친근한 톤앤매너',
+        color: 'from-yellow-500 to-orange-500',
+        badge: 'manual'
+      },
+      {
+        name: '유튜브',
+        icon: '🎥',
+        description: '영상 스크립트 생성',
+        color: 'from-red-600 to-red-500',
+        badge: 'manual'
+      }
+    ]
+  }
+
   return (
     <div>
       {/* 히어로 섹션 */}
@@ -80,14 +166,14 @@ export default function HomePage() {
             {/* CTA 버튼 */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-slideUp">
               <Link href="/register">
-                <Button size="lg" className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white shadow-2xl transform hover:scale-105 transition-all duration-300 text-lg px-8 py-6 font-bold">
+                <Button size="lg" className="btn-primary text-lg px-8 py-6">
                   <Zap className="w-6 h-6 mr-2" />
                   무료로 시작하기
                   <span className="ml-2 text-purple-200">→</span>
                 </Button>
               </Link>
               <Link href="/features">
-                <Button size="lg" variant="outline" className="border-2 border-gray-300 hover:border-purple-500 hover:text-purple-600 transition-all duration-300 text-lg px-8 py-6 font-medium">
+                <Button size="lg" className="btn-outline text-lg px-8 py-6">
                   기능 자세히 보기
                 </Button>
               </Link>
@@ -114,14 +200,14 @@ export default function HomePage() {
 
       {/* 문제점 제시 섹션 */}
       <section className="py-20 bg-gray-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="container-max">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
               이런 고민, 혹시 있으신가요?
             </h2>
             <div className="grid md:grid-cols-3 gap-8">
               {/* 콘텐츠 제작의 어려움 */}
-              <div className="p-8 bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-200">
+              <div className="card p-8 hover-lift">
                 <div className="text-5xl mb-6">😰</div>
                 <h3 className="text-xl font-bold mb-4 text-gray-900">콘텐츠 제작의 어려움</h3>
                 <div className="space-y-3 text-left">
@@ -135,7 +221,7 @@ export default function HomePage() {
               </div>
 
               {/* 눈길 끄는 썸네일 부족 */}
-              <div className="p-8 bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-200">
+              <div className="card p-8 hover-lift">
                 <div className="text-5xl mb-6">🤯</div>
                 <h3 className="text-xl font-bold mb-4 text-gray-900">눈길 끄는 썸네일 부족</h3>
                 <div className="space-y-3 text-left">
@@ -149,7 +235,7 @@ export default function HomePage() {
               </div>
 
               {/* 마케팅 문구 완성도 한계 */}
-              <div className="p-8 bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-200">
+              <div className="card p-8 hover-lift">
                 <div className="text-5xl mb-6">📉</div>
                 <h3 className="text-xl font-bold mb-4 text-gray-900">마케팅 문구 완성도 한계</h3>
                 <div className="space-y-3 text-left">
@@ -168,14 +254,14 @@ export default function HomePage() {
 
       {/* 해결책 섹션 */}
       <section className="py-20 bg-gradient-to-br from-purple-50 to-blue-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="container-max">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
               Holy AI Studio가 계획을 제시하고 실패를 피하게 도와드립니다
             </h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
               {/* 99% 시간 절약 */}
-              <div className="text-center p-8 bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 border border-white/20 backdrop-blur-sm">
+              <div className="card-gradient text-center p-8 hover-lift">
                 <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-6">
                   <Zap className="w-8 h-8 text-white" />
                 </div>
@@ -184,7 +270,7 @@ export default function HomePage() {
               </div>
 
               {/* 플랫폼 최적화 */}
-              <div className="text-center p-8 bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 border border-white/20 backdrop-blur-sm">
+              <div className="card-gradient text-center p-8 hover-lift">
                 <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full flex items-center justify-center mx-auto mb-6">
                   <Target className="w-8 h-8 text-white" />
                 </div>
@@ -193,7 +279,7 @@ export default function HomePage() {
               </div>
 
               {/* 바이럴 보장 */}
-              <div className="text-center p-8 bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 border border-white/20 backdrop-blur-sm">
+              <div className="card-gradient text-center p-8 hover-lift">
                 <div className="w-16 h-16 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-6">
                   <TrendingUp className="w-8 h-8 text-white" />
                 </div>
@@ -202,7 +288,7 @@ export default function HomePage() {
               </div>
 
               {/* 완전 자동화 */}
-              <div className="text-center p-8 bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 border border-white/20 backdrop-blur-sm">
+              <div className="card-gradient text-center p-8 hover-lift">
                 <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-6">
                   <Sparkles className="w-8 h-8 text-white" />
                 </div>
@@ -214,40 +300,92 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 플랫폼 섹션 */}
+      {/* 플랫폼 섹션 - 고급 디자인 */}
       <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="container-max">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-              지원하는 플랫폼
+              11개 플랫폼, 한 번에 정복하세요
             </h2>
-            <p className="text-xl text-gray-600 mb-12">
-              11개 주요 SNS 플랫폼을 모두 지원합니다
+            <p className="text-xl text-gray-600 mb-12 max-w-3xl mx-auto">
+              각 플랫폼에 완벽 최적화된 콘텐츠를 자동 생성합니다
             </p>
-            <div className="grid grid-cols-3 md:grid-cols-6 lg:grid-cols-11 gap-4">
-              {[
-                { name: '구글 블로그', icon: '📝' },
-                { name: '인스타그램', icon: '📷' },
-                { name: '페이스북', icon: '👥' },
-                { name: '트위터', icon: '🐦' },
-                { name: '링크드인', icon: '💼' },
-                { name: '핀터레스트', icon: '📌' },
-                { name: '네이버 블로그', icon: '🟢' },
-                { name: '티스토리', icon: '📖' },
-                { name: '브런치', icon: '☕' },
-                { name: '카카오 채널', icon: '💬' },
-                { name: '유튜브', icon: '🎥' }
-              ].map((platform, index) => (
-                <div
-                  key={platform.name}
-                  className="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-all hover:scale-110 cursor-pointer border"
-                >
-                  <div className="text-center">
-                    <div className="text-2xl mb-2">{platform.icon}</div>
-                    <p className="text-xs font-medium text-gray-700">{platform.name}</p>
+
+            {/* 플랫폼 카테고리 */}
+            <div className="space-y-12">
+              {/* 메인 블로그 */}
+              <div className="animate-slideUp">
+                <div className="flex items-center justify-center mb-8">
+                  <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl flex items-center justify-center mr-4">
+                    <FileText className="w-6 h-6 text-white" />
                   </div>
+                  <h3 className="text-2xl font-bold text-gray-900">메인 블로그</h3>
                 </div>
-              ))}
+                <div className="grid md:grid-cols-1 lg:grid-cols-1 gap-6 max-w-2xl mx-auto">
+                  {platforms.blog.map((platform, index) => (
+                    <div key={platform.name} className={`platform-card-blog group`}>
+                      <div className={`badge-blog`}>블로그</div>
+                      <div className="flex items-center space-x-4">
+                        <div className={`w-16 h-16 bg-gradient-to-r ${platform.color} rounded-2xl flex items-center justify-center text-2xl shadow-lg`}>
+                          {platform.icon}
+                        </div>
+                        <div className="flex-1">
+                          <h4 className="text-xl font-bold text-gray-900 mb-2">{platform.name}</h4>
+                          <p className="text-gray-600">{platform.description}</p>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* 자동 업로드 SNS */}
+              <div className="animate-slideUp">
+                <div className="flex items-center justify-center mb-8">
+                  <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-500 rounded-xl flex items-center justify-center mr-4">
+                    <Upload className="w-6 h-6 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-900">자동 업로드 SNS</h3>
+                </div>
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {platforms.auto.map((platform, index) => (
+                    <div key={platform.name} className={`platform-card-auto group`}>
+                      <div className={`badge-auto`}>자동</div>
+                      <div className="text-center">
+                        <div className={`w-16 h-16 bg-gradient-to-r ${platform.color} rounded-2xl flex items-center justify-center text-2xl mx-auto mb-4 shadow-lg`}>
+                          {platform.icon}
+                        </div>
+                        <h4 className="text-lg font-bold text-gray-900 mb-2">{platform.name}</h4>
+                        <p className="text-gray-600 text-sm">{platform.description}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* 수동 업로드 플랫폼 */}
+              <div className="animate-slideUp">
+                <div className="flex items-center justify-center mb-8">
+                  <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-xl flex items-center justify-center mr-4">
+                    <Download className="w-6 h-6 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-900">수동 업로드 플랫폼</h3>
+                </div>
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {platforms.manual.map((platform, index) => (
+                    <div key={platform.name} className={`platform-card-manual group`}>
+                      <div className={`badge-manual`}>수동</div>
+                      <div className="text-center">
+                        <div className={`w-16 h-16 bg-gradient-to-r ${platform.color} rounded-2xl flex items-center justify-center text-2xl mx-auto mb-4 shadow-lg`}>
+                          {platform.icon}
+                        </div>
+                        <h4 className="text-lg font-bold text-gray-900 mb-2">{platform.name}</h4>
+                        <p className="text-gray-600 text-sm">{platform.description}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -255,7 +393,7 @@ export default function HomePage() {
 
       {/* 사회적 증명 섹션 */}
       <section className="py-20 bg-gradient-to-r from-purple-500 to-blue-500 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="container-max">
           <div className="text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
               베타 사용자 성과
@@ -280,16 +418,16 @@ export default function HomePage() {
 
       {/* CTA 섹션 */}
       <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center bg-white rounded-2xl p-12 shadow-lg">
+        <div className="container-max">
+          <div className="text-center card-gradient p-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
-              지금 시작하면 <span className="text-purple-600">200 크레딧</span> 무료!
+              지금 시작하면 <span className="gradient-text">200 크레딧</span> 무료!
             </h2>
             <p className="text-xl text-gray-600 mb-8">
               베타 테스트 참여자에게만 제공되는 특별 혜택
             </p>
             <Link href="/register">
-              <Button size="lg" className="bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white shadow-lg transform hover:scale-105 transition-all animate-pulse text-lg px-8 py-4">
+              <Button size="lg" className="btn-primary text-lg px-8 py-4 animate-bounce-subtle">
                 ✅ 지금 무료로 시작하기
               </Button>
             </Link>

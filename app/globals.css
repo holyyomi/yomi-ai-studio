@@ -4,26 +4,61 @@
 
 @layer base {
   :root {
+    /* 고급 컬러 시스템 */
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
+    
+    /* Primary: 퍼플-블루 그라데이션 */
     --primary: 262.1 83.3% 57.8%;
     --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96%;
-    --secondary-foreground: 222.2 84% 4.9%;
-    --muted: 210 40% 96%;
+    
+    /* Secondary: 인디고 계열 */
+    --secondary: 238 100% 67%;
+    --secondary-foreground: 210 40% 98%;
+    
+    /* Accent: 핑크-오렌지 그라데이션 */
+    --accent: 350 100% 60%;
+    --accent-foreground: 210 40% 98%;
+    
+    /* Neutral: 슬레이트 그레이 계열 */
+    --muted: 215 25% 97%;
     --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96%;
-    --accent-foreground: 222.2 84% 4.9%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
     --ring: 262.1 83.3% 57.8%;
-    --radius: 0.5rem;
+    --radius: 0.75rem;
+    
+    /* 고급 그림자 시스템 */
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 262.1 83.3% 57.8%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 238 100% 67%;
+    --secondary-foreground: 210 40% 98%;
+    --accent: 350 100% 60%;
+    --accent-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 262.1 83.3% 57.8%;
   }
 }
 
@@ -31,38 +66,176 @@
   * {
     @apply border-border;
   }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  
+  /* 고급 타이포그래피 시스템 */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight;
+    line-height: 1.2;
+  }
+  
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl;
+  }
+  
+  h2 {
+    @apply text-3xl md:text-4xl lg:text-5xl;
+  }
+  
+  h3 {
+    @apply text-2xl md:text-3xl;
+  }
+  
+  h4 {
+    @apply text-xl md:text-2xl;
+  }
+  
+  p {
+    @apply leading-relaxed;
   }
 }
 
-/* 추가 스타일 */
-.gradient-bg {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-}
-
-.animate-pulse {
-  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-}
-
-@keyframes pulse {
-  0%, 100% {
-    opacity: 1;
+@layer components {
+  /* 고급 버튼 시스템 */
+  .btn-primary {
+    @apply bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-semibold px-6 py-3 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300;
   }
-  50% {
-    opacity: .5;
+  
+  .btn-secondary {
+    @apply bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-indigo-600 hover:to-purple-600 text-white font-semibold px-6 py-3 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300;
+  }
+  
+  .btn-accent {
+    @apply bg-gradient-to-r from-pink-500 to-orange-500 hover:from-pink-600 hover:to-orange-600 text-white font-semibold px-6 py-3 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300;
+  }
+  
+  .btn-outline {
+    @apply border-2 border-gray-300 hover:border-purple-500 hover:text-purple-600 font-semibold px-6 py-3 rounded-xl transition-all duration-300;
+  }
+  
+  /* 고급 카드 시스템 */
+  .card {
+    @apply bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100;
+  }
+  
+  .card-glass {
+    @apply bg-white/60 backdrop-blur-sm rounded-2xl shadow-lg border border-white/20;
+  }
+  
+  .card-gradient {
+    @apply bg-gradient-to-br from-white to-gray-50 rounded-2xl shadow-lg border border-gray-100;
+  }
+  
+  /* 고급 그라데이션 시스템 */
+  .gradient-primary {
+    background: linear-gradient(135deg, #7c3aed 0%, #3b82f6 100%);
+  }
+  
+  .gradient-secondary {
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  }
+  
+  .gradient-accent {
+    background: linear-gradient(135deg, #ec4899 0%, #f97316 100%);
+  }
+  
+  .gradient-text {
+    @apply bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent;
+  }
+  
+  /* 고급 애니메이션 시스템 */
+  .animate-fadeIn {
+    animation: fadeIn 1s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .animate-slideUp {
+    animation: slideUp 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .animate-slideIn {
+    animation: slideIn 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .animate-scale {
+    animation: scale 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .animate-bounce-subtle {
+    animation: bounceSubtle 2s ease-in-out infinite;
+  }
+  
+  /* 고급 호버 효과 */
+  .hover-lift {
+    @apply transform hover:-translate-y-2 hover:shadow-xl transition-all duration-300;
+  }
+  
+  .hover-glow {
+    @apply hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300;
+  }
+  
+  /* 고급 레이아웃 시스템 */
+  .container-max {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .grid-responsive {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-8;
+  }
+  
+  /* 고급 플랫폼 카드 */
+  .platform-card {
+    @apply relative p-6 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer;
+  }
+  
+  .platform-card-auto {
+    @apply platform-card bg-gradient-to-br from-green-50 to-emerald-50 border border-green-200;
+  }
+  
+  .platform-card-manual {
+    @apply platform-card bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-200;
+  }
+  
+  .platform-card-blog {
+    @apply platform-card bg-gradient-to-br from-purple-50 to-pink-50 border border-purple-200;
+  }
+  
+  .badge-auto {
+    @apply absolute -top-2 -right-2 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded-full;
+  }
+  
+  .badge-manual {
+    @apply absolute -top-2 -right-2 bg-blue-500 text-white text-xs font-bold px-2 py-1 rounded-full;
+  }
+  
+  .badge-blog {
+    @apply absolute -top-2 -right-2 bg-purple-500 text-white text-xs font-bold px-2 py-1 rounded-full;
   }
 }
 
-/* 히어로 섹션 애니메이션 */
-.animate-fadeIn {
-  animation: fadeIn 1s ease-out;
+@layer utilities {
+  /* 고급 유틸리티 */
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .gradient-mask {
+    mask: linear-gradient(to bottom, transparent, black 20%, black 80%, transparent);
+  }
+  
+  .backdrop-blur-custom {
+    backdrop-filter: blur(20px) saturate(180%);
+  }
 }
 
-.animate-slideUp {
-  animation: slideUp 0.8s ease-out;
-}
-
+/* 고급 애니메이션 키프레임 */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -75,10 +248,69 @@
 @keyframes slideUp {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(40px);
   }
   to {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scale {
+  from {
+    transform: scale(0.95);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes bounceSubtle {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+/* 고급 스크롤바 */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #7c3aed, #3b82f6);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #6d28d9, #2563eb);
+}
+
+/* 고급 포커스 스타일 */
+*:focus-visible {
+  outline: 2px solid #7c3aed;
+  outline-offset: 2px;
+}
+
+/* 고급 선택 스타일 */
+::selection {
+  background: linear-gradient(135deg, #7c3aed, #3b82f6);
+  color: white;
 }
