@@ -81,7 +81,7 @@ export default function HomePage() {
           display: flex;
           justify-content: space-between;
           align-items: center;
-          height: 70px;
+          height: 80px;
         }
         
         .logo {
@@ -93,18 +93,18 @@ export default function HomePage() {
         }
         
         .logo-icon {
-          width: 40px;
-          height: 40px;
+          width: 50px;
+          height: 50px;
           background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-          border-radius: 8px;
+          border-radius: 10px;
           display: flex;
           align-items: center;
           justify-content: center;
-          font-size: 20px;
+          font-size: 28px;
         }
         
         .logo-text {
-          font-size: 1.5rem;
+          font-size: 2rem;
           font-weight: 700;
           background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
           -webkit-background-clip: text;
