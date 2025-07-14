@@ -4,6 +4,8 @@ import { Zap, Clock, Target, TrendingUp, Sparkles, Upload, Download, FileText } 
 
 // Holy AI Studio - Final Production Version
 
+"use client"
+
 export default function HomePage() {
   return (
     <>
