@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Zap, Clock, Target, TrendingUp, Sparkles, Upload, Download, FileText } from 'lucide-react'
 
-// Deployment cache busting - v1.0.1
+// FORCE UPDATE - Deployment cache busting - v1.0.2
 
 export default function HomePage() {
   const platforms = {
@@ -107,15 +107,15 @@ export default function HomePage() {
             {/* 메인 헤드라인 */}
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-8 leading-tight animate-fadeIn">
               <span className="bg-gradient-to-r from-purple-600 via-blue-600 to-indigo-600 bg-clip-text text-transparent">
-                복잡한 콘텐츠 제작,
+                Holy AI Studio
               </span>
               <br />
               <span className="text-gray-900">
-                시간 낭비, 비효율적인
+                복잡한 콘텐츠 제작,
               </span>
               <br />
               <span className="bg-gradient-to-r from-red-600 to-orange-600 bg-clip-text text-transparent">
-                마케팅은 이제 그만!
+                시간 낭비는 이제 그만!
               </span>
             </h1>
 
