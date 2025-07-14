@@ -392,77 +392,128 @@ export default function HomePage() {
             <h2 className="section-title">지원하는 플랫폼</h2>
             <p className="section-subtitle">11개 주요 SNS 플랫폼을 모두 지원합니다</p>
             
-            <div className="platforms-container">
-              {/* 첫 번째 줄: 메인 플랫폼 */}
-              <div className="platform-row">
-                <div className="main-platform">
-                  <div className="platform-icon">📝</div>
-                  <div className="platform-name">구글 블로그</div>
-                </div>
+            {/* 메인 플랫폼 */}
+            <div style={{ textAlign: 'center', marginBottom: '50px' }}>
+              <div style={{
+                display: 'inline-block',
+                background: 'white',
+                padding: '40px',
+                borderRadius: '16px',
+                boxShadow: '0 4px 20px rgba(0,0,0,0.1)',
+                border: '3px solid #8b5cf6',
+                position: 'relative'
+              }}>
+                <div style={{
+                  position: 'absolute',
+                  top: '-10px',
+                  right: '-10px',
+                  background: '#8b5cf6',
+                  color: 'white',
+                  padding: '4px 12px',
+                  borderRadius: '12px',
+                  fontSize: '12px',
+                  fontWeight: '600'
+                }}>메인</div>
+                <div style={{ fontSize: '3rem', marginBottom: '10px' }}>📝</div>
+                <div style={{ fontSize: '1.1rem', fontWeight: '600' }}>구글 블로그</div>
               </div>
+            </div>
 
-              {/* 두 번째 줄: 자동 업로드 플랫폼 */}
-              <div>
-                <div className="row-label">자동 업로드</div>
-                <div className="platform-row">
-                  <div className="platform-card">
-                    <div className="auto-upload-badge">AUTO</div>
-                    <div className="platform-icon">🧵</div>
-                    <div className="platform-name">스레드</div>
+            {/* 자동 업로드 플랫폼 */}
+            <div style={{ marginBottom: '40px' }}>
+              <div style={{
+                textAlign: 'center',
+                fontWeight: '600',
+                color: '#666',
+                marginBottom: '20px',
+                fontSize: '16px'
+              }}>자동 업로드</div>
+              <div style={{
+                display: 'flex',
+                justifyContent: 'center',
+                gap: '20px',
+                flexWrap: 'wrap'
+              }}>
+                {[
+                  { name: '스레드', icon: '🧵' },
+                  { name: '인스타그램', icon: '📷' },
+                  { name: '페이스북', icon: '👥' },
+                  { name: '트위터', icon: '🐦' },
+                  { name: '링크드인', icon: '💼' },
+                  { name: '핀터레스트', icon: '📌' }
+                ].map((platform, index) => (
+                  <div key={index} style={{
+                    background: 'white',
+                    padding: '25px',
+                    borderRadius: '12px',
+                    textAlign: 'center',
+                    boxShadow: '0 2px 10px rgba(0,0,0,0.1)',
+                    minWidth: '140px',
+                    cursor: 'pointer',
+                    transition: 'all 0.3s ease'
+                  }}>
+                    <div style={{
+                      background: '#10b981',
+                      color: 'white',
+                      padding: '2px 8px',
+                      borderRadius: '10px',
+                      fontSize: '10px',
+                      fontWeight: '600',
+                      marginBottom: '8px',
+                      display: 'inline-block'
+                    }}>AUTO</div>
+                    <div style={{ fontSize: '2.5rem', marginBottom: '10px' }}>{platform.icon}</div>
+                    <div style={{ fontSize: '0.9rem', fontWeight: '600', color: '#333' }}>{platform.name}</div>
                   </div>
-                  <div className="platform-card">
-                    <div className="auto-upload-badge">AUTO</div>
-                    <div className="platform-icon">📷</div>
-                    <div className="platform-name">인스타그램</div>
-                  </div>
-                  <div className="platform-card">
-                    <div className="auto-upload-badge">AUTO</div>
-                    <div className="platform-icon">👥</div>
-                    <div className="platform-name">페이스북</div>
-                  </div>
-                  <div className="platform-card">
-                    <div className="auto-upload-badge">AUTO</div>
-                    <div className="platform-icon">🐦</div>
-                    <div className="platform-name">트위터</div>
-                  </div>
-                  <div className="platform-card">
-                    <div className="auto-upload-badge">AUTO</div>
-                    <div className="platform-icon">💼</div>
-                    <div className="platform-name">링크드인</div>
-                  </div>
-                  <div className="platform-card">
-                    <div className="auto-upload-badge">AUTO</div>
-                    <div className="platform-icon">📌</div>
-                    <div className="platform-name">핀터레스트</div>
-                  </div>
-                </div>
+                ))}
               </div>
+            </div>
 
-              {/* 세 번째 줄: 수동 업로드 플랫폼 */}
-              <div>
-                <div className="row-label">수동 업로드</div>
-                <div className="platform-row">
-                  <div className="platform-card">
-                    <div className="manual-upload-badge">MANUAL</div>
-                    <div className="platform-icon">🟢</div>
-                    <div className="platform-name">네이버 블로그</div>
+            {/* 수동 업로드 플랫폼 */}
+            <div>
+              <div style={{
+                textAlign: 'center',
+                fontWeight: '600',
+                color: '#666',
+                marginBottom: '20px',
+                fontSize: '16px'
+              }}>수동 업로드</div>
+              <div style={{
+                display: 'flex',
+                justifyContent: 'center',
+                gap: '20px',
+                flexWrap: 'wrap'
+              }}>
+                {[
+                  { name: '네이버 블로그', icon: '🟢' },
+                  { name: '티스토리', icon: '📖' },
+                  { name: '브런치', icon: '☕' },
+                  { name: '카카오 채널', icon: '💬' }
+                ].map((platform, index) => (
+                  <div key={index} style={{
+                    background: 'white',
+                    padding: '25px',
+                    borderRadius: '12px',
+                    textAlign: 'center',
+                    boxShadow: '0 2px 10px rgba(0,0,0,0.1)',
+                    minWidth: '140px',
+                    cursor: 'pointer',
+                    transition: 'all 0.3s ease'
+                  }}>
+                    <div style={{
+                      background: '#f59e0b',
+                      color: 'white',
+                      padding: '2px 8px',
+                      borderRadius: '10px',
+                      fontSize: '10px',
+                      fontWeight: '600',
+                      marginBottom: '8px',
+                      display: 'inline-block'
+                    }}>MANUAL</div>
+                    <div style={{ fontSize: '2.5rem', marginBottom: '10px' }}>{platform.icon}</div>
+                    <div style={{ fontSize: '0.9rem', fontWeight: '600', color: '#333' }}>{platform.name}</div>
                   </div>
-                  <div className="platform-card">
-                    <div className="manual-upload-badge">MANUAL</div>
-                    <div className="platform-icon">📖</div>
-                    <div className="platform-name">티스토리</div>
-                  </div>
-                  <div className="platform-card">
-                    <div className="manual-upload-badge">MANUAL</div>
-                    <div className="platform-icon">☕</div>
-                    <div className="platform-name">브런치</div>
-                  </div>
-                  <div className="platform-card">
-                    <div className="manual-upload-badge">MANUAL</div>
-                    <div className="platform-icon">💬</div>
-                    <div className="platform-name">카카오 채널</div>
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
           </div>
