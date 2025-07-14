@@ -395,25 +395,128 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 사회적 증명 섹션 */}
+      {/* 베타 사용자 성과 섹션 - 고도화 */}
       <section className="py-20 bg-gradient-to-r from-purple-500 to-blue-500 text-white">
         <div className="container-max">
-          <div className="text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              베타 사용자 성과
+          <div className="text-center mb-16">
+            {/* 베타 테스트 배지 */}
+            <div className="inline-flex items-center bg-yellow-400 text-purple-900 px-4 py-2 rounded-full text-sm font-bold mb-6 animate-pulse">
+              <span className="w-2 h-2 bg-red-500 rounded-full mr-2 animate-ping"></span>
+              베타 테스트 진행 중 - 20명 한정
+            </div>
+            
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              실제 베타 사용자들의 놀라운 성과
             </h2>
-            <div className="grid md:grid-cols-3 gap-8">
-              <div>
-                <div className="text-5xl font-bold mb-2">1,247%</div>
-                <div className="text-purple-100">평균 조회수 증가</div>
+            <p className="text-xl text-purple-100 mb-8 max-w-3xl mx-auto">
+              20명 한정 베타 테스터들이 달성한 실제 결과입니다
+            </p>
+          </div>
+
+          {/* 성과 지표 카드 */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-center hover-lift">
+              <div className="text-4xl mb-2">📊</div>
+              <div className="text-3xl font-bold mb-2">97%</div>
+              <div className="text-purple-100 font-semibold mb-1">시간 단축</div>
+              <div className="text-sm text-purple-200">3시간 → 5분</div>
+            </div>
+            
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-center hover-lift">
+              <div className="text-4xl mb-2">📈</div>
+              <div className="text-3xl font-bold mb-2">340%</div>
+              <div className="text-purple-100 font-semibold mb-1">조회수 증가</div>
+              <div className="text-sm text-purple-200">기존 대비 상승</div>
+            </div>
+            
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-center hover-lift">
+              <div className="text-4xl mb-2">💡</div>
+              <div className="text-3xl font-bold mb-2">100%</div>
+              <div className="text-purple-100 font-semibold mb-1">만족도</div>
+              <div className="text-sm text-purple-200">아이디어 고갈 해결</div>
+            </div>
+            
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-center hover-lift">
+              <div className="text-4xl mb-2">⚡</div>
+              <div className="text-3xl font-bold mb-2">2.5배</div>
+              <div className="text-purple-100 font-semibold mb-1">생산량 증가</div>
+              <div className="text-sm text-purple-200">일일 콘텐츠</div>
+            </div>
+          </div>
+
+          {/* 사용자 후기 */}
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 hover-lift">
+              <div className="flex items-center mb-4">
+                <div className="w-12 h-12 bg-gradient-to-r from-pink-400 to-purple-400 rounded-full flex items-center justify-center text-white font-bold text-lg mr-4">
+                  김
+                </div>
+                <div>
+                  <div className="font-bold">마케터 김○○님</div>
+                  <div className="text-sm text-purple-200">디지털 마케팅 전문가</div>
+                </div>
               </div>
-              <div>
-                <div className="text-5xl font-bold mb-2">95%</div>
-                <div className="text-purple-100">시간 절약</div>
+              <p className="text-purple-100 leading-relaxed mb-4">
+                "매일 3시간씩 콘텐츠 만들던 게 이제 5분이면 끝나요! 정말 믿기지 않아요."
+              </p>
+              <div className="flex text-yellow-400">
+                ⭐⭐⭐⭐⭐
               </div>
-              <div>
-                <div className="text-5xl font-bold mb-2">18개</div>
-                <div className="text-purple-100">평균 바이럴 게시물</div>
+            </div>
+            
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 hover-lift">
+              <div className="flex items-center mb-4">
+                <div className="w-12 h-12 bg-gradient-to-r from-blue-400 to-indigo-400 rounded-full flex items-center justify-center text-white font-bold text-lg mr-4">
+                  이
+                </div>
+                <div>
+                  <div className="font-bold">블로거 이○○님</div>
+                  <div className="text-sm text-purple-200">라이프스타일 블로거</div>
+                </div>
+              </div>
+              <p className="text-purple-100 leading-relaxed mb-4">
+                "11개 플랫폼에 동시 업로드가 이렇게 쉬울 줄이야. 시간이 정말 많이 절약돼요!"
+              </p>
+              <div className="flex text-yellow-400">
+                ⭐⭐⭐⭐⭐
+              </div>
+            </div>
+            
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 hover-lift">
+              <div className="flex items-center mb-4">
+                <div className="w-12 h-12 bg-gradient-to-r from-green-400 to-teal-400 rounded-full flex items-center justify-center text-white font-bold text-lg mr-4">
+                  박
+                </div>
+                <div>
+                  <div className="font-bold">사업자 박○○님</div>
+                  <div className="text-sm text-purple-200">온라인 쇼핑몰 운영</div>
+                </div>
+              </div>
+              <p className="text-purple-100 leading-relaxed mb-4">
+                "매출이 2배 늘었어요. 콘텐츠 마케팅 때문에 고민하지 마세요!"
+              </p>
+              <div className="flex text-yellow-400">
+                ⭐⭐⭐⭐⭐
+              </div>
+            </div>
+          </div>
+
+          {/* 신뢰도 강화 섹션 */}
+          <div className="mt-12 text-center">
+            <div className="inline-flex items-center space-x-4 bg-white/10 backdrop-blur-sm rounded-full px-6 py-3">
+              <div className="flex items-center">
+                <span className="w-3 h-3 bg-green-400 rounded-full mr-2"></span>
+                <span className="text-sm font-semibold">실제 사용자 검증</span>
+              </div>
+              <div className="w-px h-4 bg-white/30"></div>
+              <div className="flex items-center">
+                <span className="w-3 h-3 bg-blue-400 rounded-full mr-2"></span>
+                <span className="text-sm font-semibold">20명 한정 특별 혜택</span>
+              </div>
+              <div className="w-px h-4 bg-white/30"></div>
+              <div className="flex items-center">
+                <span className="w-3 h-3 bg-purple-400 rounded-full mr-2"></span>
+                <span className="text-sm font-semibold">무료 베타 테스트</span>
               </div>
             </div>
           </div>
