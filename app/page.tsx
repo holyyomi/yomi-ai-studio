@@ -107,7 +107,7 @@ export default function HomePage() {
             {/* 메인 헤드라인 */}
 
             
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-8 leading-tight animate-fadeIn">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-8 leading-tight bg-red-500 text-white p-4 rounded-lg">
               <span className="bg-gradient-to-r from-purple-600 via-blue-600 to-indigo-600 bg-clip-text text-transparent">
                 Holy AI Studio
               </span>
@@ -122,7 +122,7 @@ export default function HomePage() {
             </h1>
 
             {/* 서브 헤드라인 */}
-            <p className="text-xl md:text-2xl lg:text-3xl text-gray-700 mb-8 max-w-4xl mx-auto font-medium leading-relaxed animate-slideUp">
+            <p className="text-xl md:text-2xl lg:text-3xl text-gray-700 mb-8 max-w-4xl mx-auto font-medium leading-relaxed">
               <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent font-bold">
                 Holy AI
               </span>
@@ -130,12 +130,12 @@ export default function HomePage() {
             </p>
 
             {/* 설명 */}
-            <p className="text-lg md:text-xl text-gray-600 mb-12 max-w-3xl mx-auto leading-relaxed animate-slideUp">
+            <p className="text-lg md:text-xl text-gray-600 mb-12 max-w-3xl mx-auto leading-relaxed">
               11개 플랫폼 최적화 콘텐츠를 원클릭으로 생성하고, 자동 업로드까지 완료하세요.
             </p>
 
             {/* 핵심 가치 3개 */}
-            <div className="grid md:grid-cols-3 gap-6 mb-12 max-w-4xl mx-auto animate-slideUp">
+            <div className="grid md:grid-cols-3 gap-6 mb-12 max-w-4xl mx-auto">
               <div className="flex items-center justify-center space-x-3 p-4 bg-white/60 backdrop-blur-sm rounded-xl shadow-sm border border-white/20">
                 <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-blue-500 rounded-lg flex items-center justify-center">
                   <Clock className="w-6 h-6 text-white" />
@@ -168,23 +168,23 @@ export default function HomePage() {
             </div>
 
             {/* CTA 버튼 */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-slideUp">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link href="/register">
-                <Button size="lg" className="btn-primary text-lg px-8 py-6">
+                <Button size="lg" className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-semibold px-8 py-6 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-lg">
                   <Zap className="w-6 h-6 mr-2" />
                   무료로 시작하기
                   <span className="ml-2 text-purple-200">→</span>
                 </Button>
               </Link>
               <Link href="/features">
-                <Button size="lg" className="btn-outline text-lg px-8 py-6">
+                <Button size="lg" className="border-2 border-gray-300 hover:border-purple-500 hover:text-purple-600 font-semibold px-8 py-6 rounded-xl transition-all duration-300 text-lg">
                   기능 자세히 보기
                 </Button>
               </Link>
             </div>
 
             {/* 신뢰도 표시 */}
-            <div className="mt-12 flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-8 text-sm text-gray-500 animate-fadeIn">
+            <div className="mt-12 flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-8 text-sm text-gray-500">
               <div className="flex items-center space-x-2">
                 <div className="w-2 h-2 bg-green-500 rounded-full"></div>
                 <span>신용카드 불필요</span>
@@ -204,14 +204,14 @@ export default function HomePage() {
 
       {/* 문제점 제시 섹션 */}
       <section className="py-20 bg-gray-100">
-        <div className="container-max">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
               이런 고민, 혹시 있으신가요?
             </h2>
             <div className="grid md:grid-cols-3 gap-8">
               {/* 콘텐츠 제작의 어려움 */}
-              <div className="card p-8 hover-lift">
+              <div className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 p-8 transform hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
                 <div className="text-5xl mb-6">😰</div>
                 <h3 className="text-xl font-bold mb-4 text-gray-900">콘텐츠 제작의 어려움</h3>
                 <div className="space-y-3 text-left">
@@ -225,7 +225,7 @@ export default function HomePage() {
               </div>
 
               {/* 눈길 끄는 썸네일 부족 */}
-              <div className="card p-8 hover-lift">
+              <div className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 p-8 transform hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
                 <div className="text-5xl mb-6">🤯</div>
                 <h3 className="text-xl font-bold mb-4 text-gray-900">눈길 끄는 썸네일 부족</h3>
                 <div className="space-y-3 text-left">
@@ -239,7 +239,7 @@ export default function HomePage() {
               </div>
 
               {/* 마케팅 문구 완성도 한계 */}
-              <div className="card p-8 hover-lift">
+              <div className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 p-8 transform hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
                 <div className="text-5xl mb-6">📉</div>
                 <h3 className="text-xl font-bold mb-4 text-gray-900">마케팅 문구 완성도 한계</h3>
                 <div className="space-y-3 text-left">
@@ -258,14 +258,14 @@ export default function HomePage() {
 
       {/* 해결책 섹션 */}
       <section className="py-20 bg-gradient-to-br from-purple-50 to-blue-50">
-        <div className="container-max">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
               Holy AI Studio가 계획을 제시하고 실패를 피하게 도와드립니다
             </h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
               {/* 99% 시간 절약 */}
-              <div className="card-gradient text-center p-8 hover-lift">
+              <div className="bg-gradient-to-br from-white to-gray-50 rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 text-center p-8 transform hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
                 <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-6">
                   <Zap className="w-8 h-8 text-white" />
                 </div>
@@ -274,7 +274,7 @@ export default function HomePage() {
               </div>
 
               {/* 플랫폼 최적화 */}
-              <div className="card-gradient text-center p-8 hover-lift">
+              <div className="bg-gradient-to-br from-white to-gray-50 rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 text-center p-8 transform hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
                 <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full flex items-center justify-center mx-auto mb-6">
                   <Target className="w-8 h-8 text-white" />
                 </div>
@@ -283,7 +283,7 @@ export default function HomePage() {
               </div>
 
               {/* 바이럴 보장 */}
-              <div className="card-gradient text-center p-8 hover-lift">
+              <div className="bg-gradient-to-br from-white to-gray-50 rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 text-center p-8 transform hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
                 <div className="w-16 h-16 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-6">
                   <TrendingUp className="w-8 h-8 text-white" />
                 </div>
@@ -292,7 +292,7 @@ export default function HomePage() {
               </div>
 
               {/* 완전 자동화 */}
-              <div className="card-gradient text-center p-8 hover-lift">
+              <div className="bg-gradient-to-br from-white to-gray-50 rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 text-center p-8 transform hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
                 <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-6">
                   <Sparkles className="w-8 h-8 text-white" />
                 </div>
@@ -306,7 +306,7 @@ export default function HomePage() {
 
       {/* 플랫폼 섹션 - 최종 완성 */}
       <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
-        <div className="container-max">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             {/* 신뢰도 배지 */}
             <div className="inline-flex items-center bg-green-100 text-green-800 px-4 py-2 rounded-full text-sm font-bold mb-6">
@@ -324,7 +324,7 @@ export default function HomePage() {
             {/* 플랫폼 카테고리 */}
             <div className="space-y-16">
               {/* 🎯 메인 블로그 플랫폼 */}
-              <div className="animate-slideUp">
+              <div className="">
                 <div className="flex items-center justify-center mb-8">
                   <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl flex items-center justify-center mr-4">
                     <FileText className="w-6 h-6 text-white" />
@@ -333,8 +333,8 @@ export default function HomePage() {
                 </div>
                 <div className="grid grid-cols-1 gap-6 max-w-2xl mx-auto">
                   {platforms.blog.map((platform, index) => (
-                    <div key={platform.name} className={`platform-card-blog group transform hover:scale-105 transition-all duration-300`}>
-                      <div className={`badge-blog`}>BLOG</div>
+                    <div key={platform.name} className={`relative p-6 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer bg-gradient-to-br from-purple-50 to-pink-50 border border-purple-200 hover:border-purple-300 hover:shadow-lg hover:shadow-purple-500/20 group transform hover:scale-105 transition-all duration-300`}>
+                      <div className={`absolute -top-2 -right-2 bg-purple-500 text-white text-xs font-bold px-2 py-1 rounded-full shadow-md`}>BLOG</div>
                       <div className="flex items-center space-x-4">
                         <div className={`w-16 h-16 bg-gradient-to-r ${platform.color} rounded-2xl flex items-center justify-center text-2xl shadow-lg group-hover:shadow-xl transition-all duration-300`}>
                           {platform.icon}
@@ -354,7 +354,7 @@ export default function HomePage() {
               </div>
 
               {/* ⚡ 자동 업로드 SNS */}
-              <div className="animate-slideUp">
+              <div className="">
                 <div className="flex items-center justify-center mb-8">
                   <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-500 rounded-xl flex items-center justify-center mr-4">
                     <Upload className="w-6 h-6 text-white" />
@@ -363,8 +363,8 @@ export default function HomePage() {
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                   {platforms.auto.map((platform, index) => (
-                    <div key={platform.name} className={`platform-card-auto group transform hover:scale-105 transition-all duration-300`}>
-                      <div className={`badge-auto`}>AUTO</div>
+                    <div key={platform.name} className={`relative p-6 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer bg-gradient-to-br from-green-50 to-emerald-50 border border-green-200 hover:border-green-300 hover:shadow-lg hover:shadow-green-500/20 group transform hover:scale-105 transition-all duration-300`}>
+                      <div className={`absolute -top-2 -right-2 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded-full shadow-md`}>AUTO</div>
                       <div className="text-center">
                         <div className={`w-16 h-16 bg-gradient-to-r ${platform.color} rounded-2xl flex items-center justify-center text-2xl mx-auto mb-4 shadow-lg group-hover:shadow-xl transition-all duration-300`}>
                           {platform.icon}
@@ -385,7 +385,7 @@ export default function HomePage() {
               </div>
 
               {/* 📱 수동 업로드 플랫폼 */}
-              <div className="animate-slideUp">
+              <div className="">
                 <div className="flex items-center justify-center mb-8">
                   <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-xl flex items-center justify-center mr-4">
                     <Download className="w-6 h-6 text-white" />
@@ -394,8 +394,8 @@ export default function HomePage() {
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                   {platforms.manual.map((platform, index) => (
-                    <div key={platform.name} className={`platform-card-manual group transform hover:scale-105 transition-all duration-300`}>
-                      <div className={`badge-manual`}>MANUAL</div>
+                    <div key={platform.name} className={`relative p-6 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-200 hover:border-blue-300 hover:shadow-lg hover:shadow-blue-500/20 group transform hover:scale-105 transition-all duration-300`}>
+                      <div className={`absolute -top-2 -right-2 bg-blue-500 text-white text-xs font-bold px-2 py-1 rounded-full shadow-md`}>MANUAL</div>
                       <div className="text-center">
                         <div className={`w-16 h-16 bg-gradient-to-r ${platform.color} rounded-2xl flex items-center justify-center text-2xl mx-auto mb-4 shadow-lg group-hover:shadow-xl transition-all duration-300`}>
                           {platform.icon}
@@ -437,7 +437,7 @@ export default function HomePage() {
 
       {/* 베타 사용자 성과 섹션 - 고도화 */}
       <section className="py-20 bg-gradient-to-r from-purple-500 to-blue-500 text-white">
-        <div className="container-max">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             {/* 베타 테스트 배지 */}
             <div className="inline-flex items-center bg-yellow-400 text-purple-900 px-4 py-2 rounded-full text-sm font-bold mb-6 animate-pulse">
@@ -455,28 +455,28 @@ export default function HomePage() {
 
           {/* 성과 지표 카드 */}
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-center hover-lift">
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-center transform hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
               <div className="text-4xl mb-2">📊</div>
               <div className="text-3xl font-bold mb-2">97%</div>
               <div className="text-purple-100 font-semibold mb-1">시간 단축</div>
               <div className="text-sm text-purple-200">3시간 → 5분</div>
             </div>
             
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-center hover-lift">
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-center transform hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
               <div className="text-4xl mb-2">📈</div>
               <div className="text-3xl font-bold mb-2">340%</div>
               <div className="text-purple-100 font-semibold mb-1">조회수 증가</div>
               <div className="text-sm text-purple-200">기존 대비 상승</div>
             </div>
             
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-center hover-lift">
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-center transform hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
               <div className="text-4xl mb-2">💡</div>
               <div className="text-3xl font-bold mb-2">100%</div>
               <div className="text-purple-100 font-semibold mb-1">만족도</div>
               <div className="text-sm text-purple-200">아이디어 고갈 해결</div>
             </div>
             
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-center hover-lift">
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-center transform hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
               <div className="text-4xl mb-2">⚡</div>
               <div className="text-3xl font-bold mb-2">2.5배</div>
               <div className="text-purple-100 font-semibold mb-1">생산량 증가</div>
@@ -486,7 +486,7 @@ export default function HomePage() {
 
           {/* 사용자 후기 */}
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 hover-lift">
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 transform hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
               <div className="flex items-center mb-4">
                 <div className="w-12 h-12 bg-gradient-to-r from-pink-400 to-purple-400 rounded-full flex items-center justify-center text-white font-bold text-lg mr-4">
                   김
@@ -504,7 +504,7 @@ export default function HomePage() {
               </div>
             </div>
             
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 hover-lift">
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 transform hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
               <div className="flex items-center mb-4">
                 <div className="w-12 h-12 bg-gradient-to-r from-blue-400 to-indigo-400 rounded-full flex items-center justify-center text-white font-bold text-lg mr-4">
                   이
@@ -522,7 +522,7 @@ export default function HomePage() {
               </div>
             </div>
             
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 hover-lift">
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 transform hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
               <div className="flex items-center mb-4">
                 <div className="w-12 h-12 bg-gradient-to-r from-green-400 to-teal-400 rounded-full flex items-center justify-center text-white font-bold text-lg mr-4">
                   박
@@ -565,16 +565,16 @@ export default function HomePage() {
 
       {/* CTA 섹션 */}
       <section className="py-20 bg-gray-50">
-        <div className="container-max">
-          <div className="text-center card-gradient p-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center bg-gradient-to-br from-white to-gray-50 rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 p-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
-              지금 시작하면 <span className="gradient-text">200 크레딧</span> 무료!
+              지금 시작하면 <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">200 크레딧</span> 무료!
             </h2>
             <p className="text-xl text-gray-600 mb-8">
               베타 테스트 참여자에게만 제공되는 특별 혜택
             </p>
             <Link href="/register">
-              <Button size="lg" className="btn-primary text-lg px-8 py-4 animate-bounce-subtle">
+              <Button size="lg" className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-semibold px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-lg animate-bounce">
                 ✅ 지금 무료로 시작하기
               </Button>
             </Link>
