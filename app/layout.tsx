@@ -1,13 +1,12 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
-import { Providers } from '../components/providers'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Holy AI Studio - AI 콘텐츠 생성 플랫폼',
-  description: '11개 플랫폼에 최적화된 AI 콘텐츠를 자동으로 생성하세요',
+  title: 'Holy AI Studio - 11개 플랫폼 콘텐츠 자동 생성',
+  description: 'AI 기반 멀티플랫폼 콘텐츠 생성 도구',
 }
 
 export default function RootLayout({
@@ -18,9 +17,9 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body className={inter.className}>
-        <Providers>
+        <div className="min-h-screen">
           {children}
-        </Providers>
+        </div>
       </body>
     </html>
   )
