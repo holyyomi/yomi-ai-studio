@@ -37,25 +37,25 @@ export default function HomePage() {
         .logo {
           display: flex;
           align-items: center;
-          gap: 10px;
+          gap: 12px;
           text-decoration: none;
           color: #333;
         }
         
         .logo-icon {
-          width: 40px;
-          height: 40px;
+          width: 45px;
+          height: 45px;
           background: linear-gradient(135deg, #8b5cf6 0%, #3b82f6 100%);
-          border-radius: 8px;
+          border-radius: 10px;
           display: flex;
           align-items: center;
           justify-content: center;
-          font-size: 20px;
+          font-size: 24px;
           color: white;
         }
         
         .logo-text {
-          font-size: 1.5rem;
+          font-size: 2rem;
           font-weight: 700;
           background: linear-gradient(135deg, #8b5cf6 0%, #3b82f6 100%);
           -webkit-background-clip: text;
@@ -64,7 +64,7 @@ export default function HomePage() {
         
         .nav-menu {
           display: flex;
-          gap: 30px;
+          gap: 35px;
           list-style: none;
         }
         
@@ -72,6 +72,7 @@ export default function HomePage() {
           text-decoration: none;
           color: #666;
           font-weight: 500;
+          font-size: 16px;
           transition: color 0.3s ease;
         }
         
@@ -85,21 +86,31 @@ export default function HomePage() {
         }
         
         .btn-login {
-          padding: 8px 20px;
+          padding: 10px 24px;
           color: #666;
           text-decoration: none;
-          border-radius: 6px;
+          border-radius: 8px;
           transition: all 0.3s ease;
+          font-weight: 500;
+        }
+        
+        .btn-login:hover {
+          background: #f3f4f6;
         }
         
         .btn-signup {
-          padding: 8px 20px;
+          padding: 10px 24px;
           background: linear-gradient(135deg, #8b5cf6 0%, #3b82f6 100%);
           color: white;
           text-decoration: none;
-          border-radius: 6px;
+          border-radius: 8px;
           font-weight: 600;
           transition: all 0.3s ease;
+        }
+        
+        .btn-signup:hover {
+          transform: translateY(-1px);
+          box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
         }
         
         .hero {
@@ -171,11 +182,42 @@ export default function HomePage() {
           background: #f8fafc;
         }
         
-        .platforms-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-          gap: 20px;
+        .platforms-container {
+          display: flex;
+          flex-direction: column;
+          gap: 30px;
           margin-top: 50px;
+        }
+        
+        .platform-row {
+          display: flex;
+          justify-content: center;
+          gap: 20px;
+          flex-wrap: wrap;
+        }
+        
+        .main-platform {
+          background: white;
+          padding: 35px;
+          border-radius: 16px;
+          text-align: center;
+          box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+          border: 3px solid #8b5cf6;
+          min-width: 200px;
+          position: relative;
+        }
+        
+        .main-platform::before {
+          content: "메인";
+          position: absolute;
+          top: -10px;
+          right: -10px;
+          background: #8b5cf6;
+          color: white;
+          padding: 4px 12px;
+          border-radius: 12px;
+          font-size: 12px;
+          font-weight: 600;
         }
         
         .platform-card {
@@ -186,6 +228,7 @@ export default function HomePage() {
           box-shadow: 0 2px 10px rgba(0,0,0,0.1);
           transition: all 0.3s ease;
           cursor: pointer;
+          min-width: 140px;
         }
         
         .platform-card:hover {
@@ -193,15 +236,53 @@ export default function HomePage() {
           box-shadow: 0 10px 30px rgba(0,0,0,0.15);
         }
         
+        .auto-upload-badge {
+          background: #10b981;
+          color: white;
+          padding: 2px 8px;
+          border-radius: 10px;
+          font-size: 10px;
+          font-weight: 600;
+          margin-bottom: 8px;
+          display: inline-block;
+        }
+        
+        .manual-upload-badge {
+          background: #f59e0b;
+          color: white;
+          padding: 2px 8px;
+          border-radius: 10px;
+          font-size: 10px;
+          font-weight: 600;
+          margin-bottom: 8px;
+          display: inline-block;
+        }
+        
         .platform-icon {
           font-size: 2.5rem;
           margin-bottom: 10px;
+        }
+        
+        .main-platform .platform-icon {
+          font-size: 3rem;
         }
         
         .platform-name {
           font-size: 0.9rem;
           font-weight: 600;
           color: #333;
+        }
+        
+        .main-platform .platform-name {
+          font-size: 1.1rem;
+        }
+        
+        .row-label {
+          text-align: center;
+          font-weight: 600;
+          color: #666;
+          margin-bottom: 15px;
+          font-size: 14px;
         }
         
         .features-grid {
@@ -263,13 +344,14 @@ export default function HomePage() {
         @media (max-width: 768px) {
           .hero h1 { font-size: 2.5rem; }
           .nav-menu { display: none; }
-          .platforms-grid { grid-template-columns: repeat(3, 1fr); }
+          .platform-row { flex-direction: column; align-items: center; }
           .features-grid { grid-template-columns: 1fr; }
+          .logo-text { font-size: 1.5rem; }
         }
       `}</style>
 
       <div>
-        {/* 네비게이션 - 한 번만 포함 */}
+        {/* 네비게이션 */}
         <nav className="navbar">
           <div className="nav-container">
             <a href="/" className="logo">
@@ -278,6 +360,12 @@ export default function HomePage() {
             </a>
             
             <ul className="nav-menu">
+              <li><a href="/" className="nav-link">홈</a></li>
+              <li><a href="/features" className="nav-link">개인콘텐츠</a></li>
+              <li><a href="/product" className="nav-link">제품콘텐츠</a></li>
+              <li><a href="/pricing" className="nav-link">썸네일(준비중)</a></li>
+              <li><a href="/guide" className="nav-link">상세페이지(준비중)</a></li>
+              <li><a href="/marketing" className="nav-link">마케팅구독(준비중)</a></li>
               <li><a href="/features" className="nav-link">기능소개</a></li>
               <li><a href="/pricing" className="nav-link">가격정책</a></li>
               <li><a href="/guide" className="nav-link">이용가이드</a></li>
@@ -286,7 +374,7 @@ export default function HomePage() {
             
             <div className="nav-buttons">
               <a href="/login" className="btn-login">로그인</a>
-              <a href="/register" className="btn-signup">무료 시작</a>
+              <a href="/register" className="btn-signup">회원가입</a>
             </div>
           </div>
         </nav>
@@ -304,25 +392,78 @@ export default function HomePage() {
             <h2 className="section-title">지원하는 플랫폼</h2>
             <p className="section-subtitle">11개 주요 SNS 플랫폼을 모두 지원합니다</p>
             
-            <div className="platforms-grid">
-              {[
-                { name: '구글 블로그', icon: '📝' },
-                { name: '인스타그램', icon: '📷' },
-                { name: '페이스북', icon: '👥' },
-                { name: '트위터', icon: '🐦' },
-                { name: '링크드인', icon: '💼' },
-                { name: '핀터레스트', icon: '📌' },
-                { name: '네이버 블로그', icon: '🟢' },
-                { name: '티스토리', icon: '📖' },
-                { name: '브런치', icon: '☕' },
-                { name: '카카오 채널', icon: '💬' },
-                { name: '유튜브', icon: '🎥' }
-              ].map((platform, index) => (
-                <div key={index} className="platform-card">
-                  <div className="platform-icon">{platform.icon}</div>
-                  <div className="platform-name">{platform.name}</div>
+            <div className="platforms-container">
+              {/* 첫 번째 줄: 메인 플랫폼 */}
+              <div className="platform-row">
+                <div className="main-platform">
+                  <div className="platform-icon">📝</div>
+                  <div className="platform-name">구글 블로그</div>
                 </div>
-              ))}
+              </div>
+
+              {/* 두 번째 줄: 자동 업로드 플랫폼 */}
+              <div>
+                <div className="row-label">자동 업로드</div>
+                <div className="platform-row">
+                  <div className="platform-card">
+                    <div className="auto-upload-badge">AUTO</div>
+                    <div className="platform-icon">🧵</div>
+                    <div className="platform-name">스레드</div>
+                  </div>
+                  <div className="platform-card">
+                    <div className="auto-upload-badge">AUTO</div>
+                    <div className="platform-icon">📷</div>
+                    <div className="platform-name">인스타그램</div>
+                  </div>
+                  <div className="platform-card">
+                    <div className="auto-upload-badge">AUTO</div>
+                    <div className="platform-icon">👥</div>
+                    <div className="platform-name">페이스북</div>
+                  </div>
+                  <div className="platform-card">
+                    <div className="auto-upload-badge">AUTO</div>
+                    <div className="platform-icon">🐦</div>
+                    <div className="platform-name">트위터</div>
+                  </div>
+                  <div className="platform-card">
+                    <div className="auto-upload-badge">AUTO</div>
+                    <div className="platform-icon">💼</div>
+                    <div className="platform-name">링크드인</div>
+                  </div>
+                  <div className="platform-card">
+                    <div className="auto-upload-badge">AUTO</div>
+                    <div className="platform-icon">📌</div>
+                    <div className="platform-name">핀터레스트</div>
+                  </div>
+                </div>
+              </div>
+
+              {/* 세 번째 줄: 수동 업로드 플랫폼 */}
+              <div>
+                <div className="row-label">수동 업로드</div>
+                <div className="platform-row">
+                  <div className="platform-card">
+                    <div className="manual-upload-badge">MANUAL</div>
+                    <div className="platform-icon">🟢</div>
+                    <div className="platform-name">네이버 블로그</div>
+                  </div>
+                  <div className="platform-card">
+                    <div className="manual-upload-badge">MANUAL</div>
+                    <div className="platform-icon">📖</div>
+                    <div className="platform-name">티스토리</div>
+                  </div>
+                  <div className="platform-card">
+                    <div className="manual-upload-badge">MANUAL</div>
+                    <div className="platform-icon">☕</div>
+                    <div className="platform-name">브런치</div>
+                  </div>
+                  <div className="platform-card">
+                    <div className="manual-upload-badge">MANUAL</div>
+                    <div className="platform-icon">💬</div>
+                    <div className="platform-name">카카오 채널</div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
