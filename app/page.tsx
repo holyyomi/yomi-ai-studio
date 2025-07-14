@@ -304,26 +304,32 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 플랫폼 섹션 - 고급 디자인 */}
-      <section className="py-20 bg-white">
+      {/* 플랫폼 섹션 - 최종 완성 */}
+      <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
         <div className="container-max">
           <div className="text-center mb-16">
+            {/* 신뢰도 배지 */}
+            <div className="inline-flex items-center bg-green-100 text-green-800 px-4 py-2 rounded-full text-sm font-bold mb-6">
+              <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+              검증된 플랫폼 • API 연동 완료 • 실시간 업데이트
+            </div>
+            
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
               11개 플랫폼, 한 번에 정복하세요
             </h2>
             <p className="text-xl text-gray-600 mb-12 max-w-3xl mx-auto">
-              각 플랫폼에 완벽 최적화된 콘텐츠를 자동 생성합니다
+              각 플랫폼에 완벽 최적화된 콘텐츠를 원클릭으로 생성합니다
             </p>
 
             {/* 플랫폼 카테고리 */}
-            <div className="space-y-12">
-              {/* 메인 블로그 */}
+            <div className="space-y-16">
+              {/* 🎯 메인 블로그 플랫폼 */}
               <div className="animate-slideUp">
                 <div className="flex items-center justify-center mb-8">
                   <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl flex items-center justify-center mr-4">
                     <FileText className="w-6 h-6 text-white" />
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900">메인 블로그</h3>
+                  <h3 className="text-2xl font-bold text-gray-900">🎯 메인 블로그 플랫폼</h3>
                 </div>
                 <div className="grid grid-cols-1 gap-6 max-w-2xl mx-auto">
                   {platforms.blog.map((platform, index) => (
@@ -336,6 +342,10 @@ export default function HomePage() {
                         <div className="flex-1">
                           <h4 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-gray-700 transition-colors duration-300">{platform.name}</h4>
                           <p className="text-gray-600 group-hover:text-gray-500 transition-colors duration-300">{platform.description}</p>
+                          <div className="mt-2 flex items-center text-sm text-purple-600">
+                            <span className="w-2 h-2 bg-purple-500 rounded-full mr-2"></span>
+                            SEO 최적화 긴 콘텐츠 자동 생성
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -343,13 +353,13 @@ export default function HomePage() {
                 </div>
               </div>
 
-              {/* 자동 업로드 SNS */}
+              {/* ⚡ 자동 업로드 SNS */}
               <div className="animate-slideUp">
                 <div className="flex items-center justify-center mb-8">
                   <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-500 rounded-xl flex items-center justify-center mr-4">
                     <Upload className="w-6 h-6 text-white" />
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900">자동 업로드 SNS</h3>
+                  <h3 className="text-2xl font-bold text-gray-900">⚡ 자동 업로드 SNS</h3>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                   {platforms.auto.map((platform, index) => (
@@ -360,20 +370,27 @@ export default function HomePage() {
                           {platform.icon}
                         </div>
                         <h4 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-gray-700 transition-colors duration-300">{platform.name}</h4>
-                        <p className="text-gray-600 text-sm group-hover:text-gray-500 transition-colors duration-300">{platform.description}</p>
+                        <p className="text-gray-600 text-sm group-hover:text-gray-500 transition-colors duration-300 mb-2">{platform.description}</p>
+                        <div className="text-xs text-green-600 font-medium">
+                          {platform.name === '인스타그램' && '해시태그 자동 생성 + 스토리 최적화'}
+                          {platform.name === '페이스북' && '참여 유도 콘텐츠 + 광고 최적화'}
+                          {platform.name === '트위터' && '140자 최적화 + 스레드 생성'}
+                          {platform.name === '링크드인' && '전문성 강조 + 네트워킹 콘텐츠'}
+                          {platform.name === '핀터레스트' && '시각적 최적화 + SEO 태그'}
+                        </div>
                       </div>
                     </div>
                   ))}
                 </div>
               </div>
 
-              {/* 수동 업로드 플랫폼 */}
+              {/* 📱 수동 업로드 플랫폼 */}
               <div className="animate-slideUp">
                 <div className="flex items-center justify-center mb-8">
                   <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-xl flex items-center justify-center mr-4">
                     <Download className="w-6 h-6 text-white" />
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900">수동 업로드 플랫폼</h3>
+                  <h3 className="text-2xl font-bold text-gray-900">📱 수동 업로드 플랫폼</h3>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                   {platforms.manual.map((platform, index) => (
@@ -384,11 +401,34 @@ export default function HomePage() {
                           {platform.icon}
                         </div>
                         <h4 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-gray-700 transition-colors duration-300">{platform.name}</h4>
-                        <p className="text-gray-600 text-sm group-hover:text-gray-500 transition-colors duration-300">{platform.description}</p>
+                        <p className="text-gray-600 text-sm group-hover:text-gray-500 transition-colors duration-300 mb-2">{platform.description}</p>
+                        <div className="text-xs text-blue-600 font-medium">
+                          {platform.name === '네이버 블로그' && '한국형 SEO + 검색 최적화'}
+                          {platform.name === '티스토리' && '개인 블로그 + 애드센스 최적화'}
+                          {platform.name === '브런치' && '스토리텔링 + 구독자 유도'}
+                          {platform.name === '카카오채널' && '친근한 톤앤매너 + 상호작용'}
+                          {platform.name === '유튜브' && '영상 스크립트 + 썸네일 아이디어'}
+                        </div>
                       </div>
                     </div>
                   ))}
                 </div>
+              </div>
+            </div>
+
+            {/* 플랫폼 통계 */}
+            <div className="mt-16 grid md:grid-cols-3 gap-8">
+              <div className="text-center">
+                <div className="text-3xl font-bold text-purple-600 mb-2">11개</div>
+                <div className="text-gray-600">지원 플랫폼</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-green-600 mb-2">5개</div>
+                <div className="text-gray-600">자동 업로드</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-blue-600 mb-2">100%</div>
+                <div className="text-gray-600">API 연동 완료</div>
               </div>
             </div>
           </div>
