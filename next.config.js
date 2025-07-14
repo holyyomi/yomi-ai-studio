@@ -1,10 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // output: 'export' 제거
-  // trailingSlash: true 제거
-  experimental: {
-    appDir: true,
-  },
+  // 기본 설정만 유지
 }
 
 module.exports = nextConfig 
