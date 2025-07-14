@@ -105,6 +105,11 @@ export default function HomePage() {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             {/* 메인 헤드라인 */}
+            {/* TEST 12345 - DEPLOYMENT VERIFICATION */}
+            <div className="bg-red-500 text-white text-center py-2 mb-4 rounded-lg font-bold text-lg animate-pulse">
+              🚀 TEST 12345 - DEPLOYMENT VERIFICATION 🚀
+            </div>
+            
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-8 leading-tight animate-fadeIn">
               <span className="bg-gradient-to-r from-purple-600 via-blue-600 to-indigo-600 bg-clip-text text-transparent">
                 Holy AI Studio

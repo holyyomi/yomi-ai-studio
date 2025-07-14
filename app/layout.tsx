@@ -7,7 +7,7 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Holy AI Studio - 11개 플랫폼 원클릭 콘텐츠 생성 v1.0.3 - DEPLOYED',
+  title: 'Holy AI Studio - 11개 플랫폼 원클릭 콘텐츠 생성 v1.0.4 - TEST 12345',
   description: 'AI 기반 멀티플랫폼 콘텐츠 생성 도구. 하나의 주제로 11개 SNS 플랫폼 최적화 콘텐츠 자동 생성',
   keywords: ['AI', '콘텐츠', 'SNS', '마케팅', '자동화'],
   // FORCE UPDATE - Cache busting and deployment force update
