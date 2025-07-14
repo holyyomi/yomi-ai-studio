@@ -1,4 +1,5 @@
 {
+  "name": "holy-ai-studio",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
