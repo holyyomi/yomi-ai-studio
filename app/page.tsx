@@ -55,7 +55,7 @@ export default function HomePage() {
         }
         
         .logo-text {
-          font-size: 2rem;
+          font-size: 2.5rem;  /* 더 크게 */
           font-weight: 700;
           background: linear-gradient(135deg, #8b5cf6 0%, #3b82f6 100%);
           -webkit-background-clip: text;
@@ -64,7 +64,7 @@ export default function HomePage() {
         
         .nav-menu {
           display: flex;
-          gap: 35px;
+          gap: 25px;  /* 간격 줄임 */
           list-style: none;
         }
         
@@ -72,7 +72,7 @@ export default function HomePage() {
           text-decoration: none;
           color: #666;
           font-weight: 500;
-          font-size: 16px;
+          font-size: 14px;  /* 메뉴 텍스트는 작게 */
           transition: color 0.3s ease;
         }
         
@@ -361,11 +361,11 @@ export default function HomePage() {
             
             <ul className="nav-menu">
               <li><a href="/" className="nav-link">홈</a></li>
-              <li><a href="/features" className="nav-link">개인콘텐츠</a></li>
+              <li><a href="/personal" className="nav-link">개인콘텐츠</a></li>
               <li><a href="/product" className="nav-link">제품콘텐츠</a></li>
-              <li><a href="/pricing" className="nav-link">썸네일(준비중)</a></li>
-              <li><a href="/guide" className="nav-link">상세페이지(준비중)</a></li>
-              <li><a href="/marketing" className="nav-link">마케팅구독(준비중)</a></li>
+              <li><a href="/thumbnail" className="nav-link">썸네일(준비중) <span style={{color: '#f59e0b'}}>●</span></a></li>
+              <li><a href="/detail" className="nav-link">상세페이지(준비중) <span style={{color: '#f59e0b'}}>●</span></a></li>
+              <li><a href="/marketing" className="nav-link">마케팅구독(준비중) <span style={{color: '#f59e0b'}}>●</span></a></li>
               <li><a href="/features" className="nav-link">기능소개</a></li>
               <li><a href="/pricing" className="nav-link">가격정책</a></li>
               <li><a href="/guide" className="nav-link">이용가이드</a></li>
