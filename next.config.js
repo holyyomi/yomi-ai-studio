@@ -8,11 +8,6 @@ const nextConfig = {
     // 배포 시 ESLint 에러 무시
     ignoreDuringBuilds: true,
   },
-  experimental: {
-    serverActions: {
-      allowedOrigins: ['localhost:3000', 'vercel.app'],
-    },
-  },
   images: {
     domains: [
       'oaidalleapiprodscus.blob.core.windows.net',

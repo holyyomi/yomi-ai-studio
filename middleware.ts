@@ -1,48 +1,24 @@
-import { withAuth } from 'next-auth/middleware'
 import { NextResponse } from 'next/server'
+import type { NextRequest } from 'next/server'
 
-export default withAuth(
-  function middleware(req) {
-    const token = req.nextauth.token
-    const isAuth = !!token
-    const isAuthPage = req.nextUrl.pathname.startsWith('/login') || 
-                      req.nextUrl.pathname.startsWith('/register')
-    const isAdminPage = req.nextUrl.pathname.startsWith('/admin')
-    const isDashboard = req.nextUrl.pathname.startsWith('/dashboard')
+export function middleware(request: NextRequest) {
+  // 보호된 경로들
+  const protectedPaths = ['/dashboard', '/admin']
+  const isProtectedPath = protectedPaths.some(path => 
+    request.nextUrl.pathname.startsWith(path)
+  )
 
-    // 인증 페이지에서 이미 로그인된 사용자 리다이렉트
-    if (isAuthPage) {
-      if (isAuth) {
-        return NextResponse.redirect(new URL('/dashboard', req.url))
-      }
-      return null
-    }
-
-    // 대시보드 접근 시 인증 필요
-    if (isDashboard) {
-      if (!isAuth) {
-        return NextResponse.redirect(new URL('/login', req.url))
-      }
-      return null
-    }
-
-    // 관리자 페이지 접근 시 관리자 권한 필요
-    if (isAdminPage) {
-      if (!isAuth || !token?.isAdmin) {
-        return NextResponse.redirect(new URL('/dashboard', req.url))
-      }
-      return null
-    }
-
-    return null
-  },
-  {
-    callbacks: {
-      authorized: () => true
-    }
+  if (isProtectedPath) {
+    // 클라이언트 사이드에서 인증을 처리하므로 여기서는 단순히 통과
+    return NextResponse.next()
   }
-)
+
+  return NextResponse.next()
+}
 
 export const config = {
-  matcher: ['/dashboard/:path*', '/admin/:path*', '/login', '/register']
+  matcher: [
+    '/dashboard/:path*',
+    '/admin/:path*',
+  ],
 } 

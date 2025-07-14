@@ -1,5 +1,7 @@
 "use client"
 
+import Link from "next/link"
+
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-white">
@@ -14,8 +16,21 @@ export default function HomePage() {
               <span className="text-2xl font-bold text-purple-600">Holy AI Studio</span>
             </div>
             <div className="flex items-center space-x-4">
-              <button className="px-4 py-2 text-gray-600 hover:text-purple-600 transition-colors">로그인</button>
-              <button className="px-4 py-2 bg-purple-600 text-white rounded-lg font-medium hover:bg-purple-700 transition-colors">회원가입</button>
+              <Link href="/admin">
+                <button className="px-3 py-2 text-sm text-gray-500 hover:text-purple-600 transition-colors">
+                  관리자
+                </button>
+              </Link>
+              <Link href="/login">
+                <button className="px-4 py-2 text-gray-600 hover:text-purple-600 transition-colors">
+                  로그인
+                </button>
+              </Link>
+              <Link href="/register">
+                <button className="px-4 py-2 bg-purple-600 text-white rounded-lg font-medium hover:bg-purple-700 transition-colors">
+                  회원가입
+                </button>
+              </Link>
             </div>
           </div>
           {/* 두 번째 줄: 네비게이션 메뉴 */}

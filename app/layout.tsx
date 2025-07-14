@@ -1,12 +1,8 @@
-import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
 import './globals.css'
 
-const inter = Inter({ subsets: ['latin'] })
-
-export const metadata: Metadata = {
-  title: 'Holy AI Studio - 11개 플랫폼 콘텐츠 자동 생성',
-  description: 'AI 기반 멀티플랫폼 콘텐츠 생성 도구',
+export const metadata = {
+  title: 'Holy AI Studio',
+  description: '11개 플랫폼 AI 콘텐츠 생성 스튜디오',
 }
 
 export default function RootLayout({
@@ -16,9 +12,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ko">
-      <body className={inter.className}>
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   )
 }
