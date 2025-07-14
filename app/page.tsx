@@ -321,17 +321,17 @@ export default function HomePage() {
                   </div>
                   <h3 className="text-2xl font-bold text-gray-900">메인 블로그</h3>
                 </div>
-                <div className="grid md:grid-cols-1 lg:grid-cols-1 gap-6 max-w-2xl mx-auto">
+                <div className="grid grid-cols-1 gap-6 max-w-2xl mx-auto">
                   {platforms.blog.map((platform, index) => (
-                    <div key={platform.name} className={`platform-card-blog group`}>
-                      <div className={`badge-blog`}>블로그</div>
+                    <div key={platform.name} className={`platform-card-blog group transform hover:scale-105 transition-all duration-300`}>
+                      <div className={`badge-blog`}>BLOG</div>
                       <div className="flex items-center space-x-4">
-                        <div className={`w-16 h-16 bg-gradient-to-r ${platform.color} rounded-2xl flex items-center justify-center text-2xl shadow-lg`}>
+                        <div className={`w-16 h-16 bg-gradient-to-r ${platform.color} rounded-2xl flex items-center justify-center text-2xl shadow-lg group-hover:shadow-xl transition-all duration-300`}>
                           {platform.icon}
                         </div>
                         <div className="flex-1">
-                          <h4 className="text-xl font-bold text-gray-900 mb-2">{platform.name}</h4>
-                          <p className="text-gray-600">{platform.description}</p>
+                          <h4 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-gray-700 transition-colors duration-300">{platform.name}</h4>
+                          <p className="text-gray-600 group-hover:text-gray-500 transition-colors duration-300">{platform.description}</p>
                         </div>
                       </div>
                     </div>
@@ -347,16 +347,16 @@ export default function HomePage() {
                   </div>
                   <h3 className="text-2xl font-bold text-gray-900">자동 업로드 SNS</h3>
                 </div>
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                   {platforms.auto.map((platform, index) => (
-                    <div key={platform.name} className={`platform-card-auto group`}>
-                      <div className={`badge-auto`}>자동</div>
+                    <div key={platform.name} className={`platform-card-auto group transform hover:scale-105 transition-all duration-300`}>
+                      <div className={`badge-auto`}>AUTO</div>
                       <div className="text-center">
-                        <div className={`w-16 h-16 bg-gradient-to-r ${platform.color} rounded-2xl flex items-center justify-center text-2xl mx-auto mb-4 shadow-lg`}>
+                        <div className={`w-16 h-16 bg-gradient-to-r ${platform.color} rounded-2xl flex items-center justify-center text-2xl mx-auto mb-4 shadow-lg group-hover:shadow-xl transition-all duration-300`}>
                           {platform.icon}
                         </div>
-                        <h4 className="text-lg font-bold text-gray-900 mb-2">{platform.name}</h4>
-                        <p className="text-gray-600 text-sm">{platform.description}</p>
+                        <h4 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-gray-700 transition-colors duration-300">{platform.name}</h4>
+                        <p className="text-gray-600 text-sm group-hover:text-gray-500 transition-colors duration-300">{platform.description}</p>
                       </div>
                     </div>
                   ))}
@@ -371,16 +371,16 @@ export default function HomePage() {
                   </div>
                   <h3 className="text-2xl font-bold text-gray-900">수동 업로드 플랫폼</h3>
                 </div>
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                   {platforms.manual.map((platform, index) => (
-                    <div key={platform.name} className={`platform-card-manual group`}>
-                      <div className={`badge-manual`}>수동</div>
+                    <div key={platform.name} className={`platform-card-manual group transform hover:scale-105 transition-all duration-300`}>
+                      <div className={`badge-manual`}>MANUAL</div>
                       <div className="text-center">
-                        <div className={`w-16 h-16 bg-gradient-to-r ${platform.color} rounded-2xl flex items-center justify-center text-2xl mx-auto mb-4 shadow-lg`}>
+                        <div className={`w-16 h-16 bg-gradient-to-r ${platform.color} rounded-2xl flex items-center justify-center text-2xl mx-auto mb-4 shadow-lg group-hover:shadow-xl transition-all duration-300`}>
                           {platform.icon}
                         </div>
-                        <h4 className="text-lg font-bold text-gray-900 mb-2">{platform.name}</h4>
-                        <p className="text-gray-600 text-sm">{platform.description}</p>
+                        <h4 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-gray-700 transition-colors duration-300">{platform.name}</h4>
+                        <p className="text-gray-600 text-sm group-hover:text-gray-500 transition-colors duration-300">{platform.description}</p>
                       </div>
                     </div>
                   ))}
