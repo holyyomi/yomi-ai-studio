@@ -1,11 +1,12 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useRouter } from "next/navigation"
 import Link from "next/link"
 import { createUser } from "@/lib/users"
 
 export default function RegisterPage() {
+  const [mounted, setMounted] = useState(false)
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
@@ -14,8 +15,19 @@ export default function RegisterPage() {
   const [isLoading, setIsLoading] = useState(false)
   const router = useRouter()
 
+  // 클라이언트 사이드에서만 실행
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    
+    if (!mounted) {
+      setError("페이지를 다시 로드해주세요.")
+      return
+    }
+    
     setError("")
     setIsLoading(true)
 
@@ -44,10 +56,22 @@ export default function RegisterPage() {
       alert(`회원가입이 완료되었습니다! 환영합니다, ${newUser.name}님!`)
       router.push("/login")
     } catch (error: any) {
-      setError(error.message)
+      setError(error.message || "회원가입 중 오류가 발생했습니다.")
     } finally {
       setIsLoading(false)
     }
+  }
+
+  // 서버사이드 렌더링 중에는 로딩 표시
+  if (!mounted) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
+        <div className="text-center">
+          <div className="text-4xl mb-4">⚡</div>
+          <div className="text-lg text-gray-600">페이지를 준비 중입니다...</div>
+        </div>
+      </div>
+    )
   }
 
   return (
@@ -79,6 +103,7 @@ export default function RegisterPage() {
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-purple-500 focus:border-purple-500"
                 placeholder="홍길동"
                 required
+                disabled={!mounted}
               />
             </div>
 
@@ -91,6 +116,7 @@ export default function RegisterPage() {
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-purple-500 focus:border-purple-500"
                 placeholder="your@email.com"
                 required
+                disabled={!mounted}
               />
             </div>
 
@@ -103,6 +129,7 @@ export default function RegisterPage() {
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-purple-500 focus:border-purple-500"
                 placeholder="6자 이상 입력하세요"
                 required
+                disabled={!mounted}
               />
             </div>
 
@@ -115,12 +142,13 @@ export default function RegisterPage() {
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-purple-500 focus:border-purple-500"
                 placeholder="비밀번호를 다시 입력하세요"
                 required
+                disabled={!mounted}
               />
             </div>
 
             <button
               type="submit"
-              disabled={isLoading}
+              disabled={isLoading || !mounted}
               className="w-full bg-gradient-to-r from-purple-600 to-blue-600 text-white py-2 px-4 rounded-md hover:shadow-lg transition-all duration-200 disabled:opacity-50"
             >
               {isLoading ? "가입 중..." : "회원가입"}

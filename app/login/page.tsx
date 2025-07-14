@@ -1,16 +1,21 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useRouter } from "next/navigation"
 import Link from "next/link"
 import { validateUser } from "@/lib/users"
 
 export default function LoginPage() {
+  const [mounted, setMounted] = useState(false)
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [error, setError] = useState("")
   const [isLoading, setIsLoading] = useState(false)
   const router = useRouter()
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -38,6 +43,18 @@ export default function LoginPage() {
     } finally {
       setIsLoading(false)
     }
+  }
+
+  // SSR 중에는 로딩 표시
+  if (!mounted) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
+        <div className="text-center">
+          <div className="text-4xl mb-4">⚡</div>
+          <div className="text-lg text-gray-600">페이지를 준비 중입니다...</div>
+        </div>
+      </div>
+    )
   }
 
   return (
@@ -75,6 +92,7 @@ export default function LoginPage() {
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-purple-500 focus:border-purple-500"
                 placeholder="your@email.com"
                 required
+                disabled={!mounted}
               />
             </div>
 
@@ -87,12 +105,13 @@ export default function LoginPage() {
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-purple-500 focus:border-purple-500"
                 placeholder="비밀번호를 입력하세요"
                 required
+                disabled={!mounted}
               />
             </div>
 
             <button
               type="submit"
-              disabled={isLoading}
+              disabled={isLoading || !mounted}
               className="w-full bg-gradient-to-r from-purple-600 to-blue-600 text-white py-2 px-4 rounded-md hover:shadow-lg transition-all duration-200 disabled:opacity-50"
             >
               {isLoading ? "로그인 중..." : "로그인"}

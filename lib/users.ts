@@ -1,4 +1,4 @@
-// 브라우저 로컬스토리지 기반 사용자 관리 시스템 (배포용)
+// 배포 환경 호환 사용자 관리 시스템
 export interface User {
   id: string
   name: string
@@ -37,29 +37,55 @@ const defaultUsers: User[] = [
 
 const USERS_KEY = "holy_ai_studio_users"
 
-function initializeUsers() {
-  if (typeof window === 'undefined') return defaultUsers
-  
-  const storedUsers = localStorage.getItem(USERS_KEY)
-  if (!storedUsers) {
-    localStorage.setItem(USERS_KEY, JSON.stringify(defaultUsers))
-    return defaultUsers
-  }
-  
-  return JSON.parse(storedUsers)
+// 브라우저 환경 체크
+function isBrowser(): boolean {
+  return typeof window !== 'undefined'
 }
 
-function saveUsers(users: User[]) {
-  if (typeof window === 'undefined') return
-  localStorage.setItem(USERS_KEY, JSON.stringify(users))
+// 안전한 localStorage 접근
+function getStoredUsers(): User[] {
+  if (!isBrowser()) return defaultUsers
+  
+  try {
+    const storedUsers = localStorage.getItem(USERS_KEY)
+    if (!storedUsers) {
+      localStorage.setItem(USERS_KEY, JSON.stringify(defaultUsers))
+      return defaultUsers
+    }
+    
+    const users = JSON.parse(storedUsers)
+    
+    // 관리자 계정 확인 및 추가
+    const adminExists = users.find((user: User) => user.email === "a01041001637@gmail.com")
+    if (!adminExists) {
+      users.push(defaultUsers[0])
+      localStorage.setItem(USERS_KEY, JSON.stringify(users))
+    }
+    
+    return users
+  } catch (error) {
+    console.error('localStorage 접근 오류:', error)
+    return defaultUsers
+  }
+}
+
+// 안전한 localStorage 저장
+function saveUsers(users: User[]): void {
+  if (!isBrowser()) return
+  
+  try {
+    localStorage.setItem(USERS_KEY, JSON.stringify(users))
+  } catch (error) {
+    console.error('localStorage 저장 오류:', error)
+  }
 }
 
 export function getAllUsers(): User[] {
-  return initializeUsers()
+  return getStoredUsers()
 }
 
 export function findUserByEmail(email: string): User | null {
-  const users = getAllUsers()
+  const users = getStoredUsers()
   return users.find(user => user.email === email) || null
 }
 
@@ -68,7 +94,11 @@ export function createUser(userData: {
   email: string
   password: string
 }): User {
-  const users = getAllUsers()
+  if (!isBrowser()) {
+    throw new Error("브라우저 환경에서만 사용 가능합니다.")
+  }
+  
+  const users = getStoredUsers()
   
   const existingUser = users.find(user => user.email === userData.email)
   if (existingUser) {
@@ -76,7 +106,7 @@ export function createUser(userData: {
   }
 
   const newUser: User = {
-    id: `user-${Date.now()}`,
+    id: `user-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
     ...userData,
     role: "user",
     credits: 200,
@@ -90,7 +120,9 @@ export function createUser(userData: {
 }
 
 export function validateUser(email: string, password: string): User | null {
-  const users = getAllUsers()
+  if (!isBrowser()) return null
+  
+  const users = getStoredUsers()
   const user = users.find(user => user.email === email && user.password === password)
   
   if (user) {
@@ -104,7 +136,9 @@ export function validateUser(email: string, password: string): User | null {
 }
 
 export function updateUser(userId: string, updates: Partial<User>): User | null {
-  const users = getAllUsers()
+  if (!isBrowser()) return null
+  
+  const users = getStoredUsers()
   const userIndex = users.findIndex(user => user.id === userId)
   
   if (userIndex === -1) return null
@@ -115,7 +149,9 @@ export function updateUser(userId: string, updates: Partial<User>): User | null 
 }
 
 export function deleteUser(userId: string): boolean {
-  const users = getAllUsers()
+  if (!isBrowser()) return false
+  
+  const users = getStoredUsers()
   const filteredUsers = users.filter(user => user.id !== userId)
   
   if (filteredUsers.length === users.length) return false
@@ -135,7 +171,7 @@ export function updateUserPlan(userId: string, plan: User['plan']): boolean {
 }
 
 export function getUserStats() {
-  const users = getAllUsers()
+  const users = getStoredUsers()
   const now = new Date()
   const oneWeekAgo = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000)
   
