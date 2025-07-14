@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
-import { Zap, Clock, Target, TrendingUp } from 'lucide-react'
+import { Zap, Clock, Target, TrendingUp, Sparkles } from 'lucide-react'
 
 export default function HomePage() {
   return (
@@ -113,60 +113,101 @@ export default function HomePage() {
       </section>
 
       {/* 문제점 제시 섹션 */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-              이런 고민 있으시죠?
+              이런 고민, 혹시 있으신가요?
             </h2>
             <div className="grid md:grid-cols-3 gap-8">
-              <div className="p-6 bg-red-50 rounded-lg">
-                <div className="text-4xl mb-4">😰</div>
-                <h3 className="text-xl font-semibold mb-2 text-red-700">시간 부족</h3>
-                <p className="text-red-600">11개 플랫폼에 각각 다른 콘텐츠를 만들 시간이 없어요</p>
+              {/* 콘텐츠 제작의 어려움 */}
+              <div className="p-8 bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-200">
+                <div className="text-5xl mb-6">😰</div>
+                <h3 className="text-xl font-bold mb-4 text-gray-900">콘텐츠 제작의 어려움</h3>
+                <div className="space-y-3 text-left">
+                  <p className="text-gray-600 leading-relaxed">
+                    매일 새로운 블로그 포스팅, SNS 게시물 작성에 지쳐있어요
+                  </p>
+                  <p className="text-gray-600 leading-relaxed">
+                    각 플랫폼별 최적화 규칙을 알기 어려워요
+                  </p>
+                </div>
               </div>
-              <div className="p-6 bg-orange-50 rounded-lg">
-                <div className="text-4xl mb-4">🤯</div>
-                <h3 className="text-xl font-semibold mb-2 text-orange-700">복잡함</h3>
-                <p className="text-orange-600">각 플랫폼마다 다른 규칙과 최적화 방법을 알기 어려워요</p>
+
+              {/* 눈길 끄는 썸네일 부족 */}
+              <div className="p-8 bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-200">
+                <div className="text-5xl mb-6">🤯</div>
+                <h3 className="text-xl font-bold mb-4 text-gray-900">눈길 끄는 썸네일 부족</h3>
+                <div className="space-y-3 text-left">
+                  <p className="text-gray-600 leading-relaxed">
+                    수많은 포스팅 중에서도 눈에 띄는 썸네일 만들기가 어려워요
+                  </p>
+                  <p className="text-gray-600 leading-relaxed">
+                    전문적인 디자인 도구 사용법을 모르겠어요
+                  </p>
+                </div>
               </div>
-              <div className="p-6 bg-yellow-50 rounded-lg">
-                <div className="text-4xl mb-4">📉</div>
-                <h3 className="text-xl font-semibold mb-2 text-yellow-700">낮은 성과</h3>
-                <p className="text-yellow-600">열심히 만든 콘텐츠가 생각만큼 반응이 좋지 않아요</p>
+
+              {/* 마케팅 문구 완성도 한계 */}
+              <div className="p-8 bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-200">
+                <div className="text-5xl mb-6">📉</div>
+                <h3 className="text-xl font-bold mb-4 text-gray-900">마케팅 문구 완성도 한계</h3>
+                <div className="space-y-3 text-left">
+                  <p className="text-gray-600 leading-relaxed">
+                    고객의 마음을 움직이는 강력한 문구 작성이 어려워요
+                  </p>
+                  <p className="text-gray-600 leading-relaxed">
+                    구매 전환율을 높이는 설득력 있는 메시지가 필요해요
+                  </p>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 솔루션 섹션 */}
-      <section className="py-20 bg-gray-50">
+      {/* 해결책 섹션 */}
+      <section className="py-20 bg-gradient-to-br from-purple-50 to-blue-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-              Holy AI Studio가 해결해드립니다
+              Holy AI Studio가 계획을 제시하고 실패를 피하게 도와드립니다
             </h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-              <div className="text-center p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                <div className="text-4xl mb-4">⏰</div>
-                <h3 className="text-xl font-semibold mb-2 text-gray-900">99% 시간 절약</h3>
-                <p className="text-gray-600">11개 플랫폼 콘텐츠를 5분만에</p>
+              {/* 99% 시간 절약 */}
+              <div className="text-center p-8 bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 border border-white/20 backdrop-blur-sm">
+                <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <Zap className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-xl font-bold mb-3 text-gray-900">99% 시간 절약</h3>
+                <p className="text-gray-600 leading-relaxed">11개 플랫폼 콘텐츠를 5분만에</p>
               </div>
-              <div className="text-center p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                <div className="text-4xl mb-4">🎯</div>
-                <h3 className="text-xl font-semibold mb-2 text-gray-900">플랫폼 최적화</h3>
-                <p className="text-gray-600">각 플랫폼에 맞는 완벽한 콘텐츠</p>
+
+              {/* 플랫폼 최적화 */}
+              <div className="text-center p-8 bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 border border-white/20 backdrop-blur-sm">
+                <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <Target className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-xl font-bold mb-3 text-gray-900">플랫폼 최적화</h3>
+                <p className="text-gray-600 leading-relaxed">각 플랫폼에 맞는 완벽한 콘텐츠</p>
               </div>
-              <div className="text-center p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                <div className="text-4xl mb-4">📈</div>
-                <h3 className="text-xl font-semibold mb-2 text-gray-900">바이럴 보장</h3>
-                <p className="text-gray-600">AI가 분석한 바이럴 요소 적용</p>
+
+              {/* 바이럴 보장 */}
+              <div className="text-center p-8 bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 border border-white/20 backdrop-blur-sm">
+                <div className="w-16 h-16 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <TrendingUp className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-xl font-bold mb-3 text-gray-900">바이럴 보장</h3>
+                <p className="text-gray-600 leading-relaxed">AI가 분석한 바이럴 요소 적용</p>
               </div>
-              <div className="text-center p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                <div className="text-4xl mb-4">✨</div>
-                <h3 className="text-xl font-semibold mb-2 text-gray-900">완전 자동화</h3>
-                <p className="text-gray-600">클릭 한 번으로 모든 것 완료</p>
+
+              {/* 완전 자동화 */}
+              <div className="text-center p-8 bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 border border-white/20 backdrop-blur-sm">
+                <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <Sparkles className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-xl font-bold mb-3 text-gray-900">완전 자동화</h3>
+                <p className="text-gray-600 leading-relaxed">클릭 한 번으로 모든 것 완료</p>
               </div>
             </div>
           </div>
